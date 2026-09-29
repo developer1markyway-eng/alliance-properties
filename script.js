@@ -203,14 +203,9 @@
     card.className = "prop-card";
     var locDisplay = esc(p.loc) + (p.landmark ? ' <span style="font-weight:500; opacity:.85;">- ' + esc(p.landmark) + '</span>' : '');
     var isLb = isLetterboxed(p.images[0]);
-    var badgesHtml = '<div class="prop-badges">' +
-      (p.availability ? '<span class="prop-available">'+esc(p.availability)+'</span>' : '') +
-      (p.tag ? '<span class="prop-tag">'+esc(p.tag)+'</span>' : '') +
-    '</div>';
     card.innerHTML =
       '<div class="prop-art">' +
         '<img class="prop-photo' + (isLb ? ' img-letterboxed' : '') + '" src="'+esc(p.images[0])+'" alt="'+esc(p.name)+'" loading="lazy">' +
-        badgesHtml +
       '</div>' +
       '<div class="prop-body">' +
         '<div><div class="prop-name">'+esc(p.name)+'</div><div class="prop-loc">'+locDisplay+'</div></div>' +

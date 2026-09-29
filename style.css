@@ -214,14 +214,21 @@
   .prop-rent{ margin-top:auto; font-size:1.05rem; font-weight:800; color:var(--red); }
   .prop-rent span{ font-size:.72rem; color:#6E6E6E; font-weight:600; }
   .prop-actions{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
-  .prop-more{ background:none; border:none; padding:0; cursor:pointer; font-weight:700; font-size:.84rem; color:#141414; border-bottom:2px solid var(--red); transition:color .15s ease; }
-  .prop-more:hover{ color:var(--red); }
-  .btn-wa-card{
-    display:inline-flex; align-items:center; gap:6px; background:#E6F6EA; color:#1D8A4A;
-    border:1px solid #CDEFD7; border-radius:0; padding:8px 12px; font-weight:700; font-size:.78rem;
-    text-decoration:none; transition:background .15s ease;
+  .prop-more{
+    display:inline-flex; align-items:center; justify-content:center;
+    background:var(--red); color:#fff;
+    border:1px solid var(--red); border-radius:0;
+    padding:8px 14px; font-weight:700; font-size:.78rem; font-family:inherit;
+    line-height:1.2; cursor:pointer; text-decoration:none; white-space:nowrap;
+    transition:background .15s ease, border-color .15s ease;
   }
-  .btn-wa-card svg{ width:15px; height:15px; }
+  .prop-more:hover{ background:var(--red-deep); border-color:var(--red-deep); }
+  .btn-wa-card{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#E6F6EA; color:#1D8A4A;
+    border:1px solid #CDEFD7; border-radius:0; padding:8px 12px; font-weight:700; font-size:.78rem;
+    line-height:1.2; text-decoration:none; white-space:nowrap; transition:background .15s ease;
+  }
+  .btn-wa-card svg{ width:15px; height:15px; flex-shrink:0; }
   .btn-wa-card:hover{ background:#D6F0DC; }
   .view-all{ margin-top:32px; text-align:center; }
   .view-all .btn-outline{ border-color:#141414; }
