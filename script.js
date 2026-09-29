@@ -279,8 +279,7 @@
       descHtml += '<li>' + esc(h) + '</li>';
     });
     descHtml += '</ul>';
-    descHtml += '<p style="margin:0 0 10px 0;"><strong>Ideal for:</strong> ' + esc(p.idealFor) + '</p>';
-    descHtml += '<p style="margin:0; font-weight:600; color:var(--red);"><strong>CTA:</strong> ' + esc(p.cta) + '</p>';
+    descHtml += '<p style="margin:0;"><strong>Ideal for:</strong> ' + esc(p.idealFor) + '</p>';
     descEl.innerHTML = descHtml;
 
     thumbsEl.innerHTML = p.images.map(function(src, i){
