@@ -177,6 +177,42 @@
         "img/properties/propset4/08Nov20250942182.jpeg",
         "img/properties/propset4/08Nov20250942183.jpeg"
       ]
+    },
+    {
+      name: "Fully Furnished Office Space for Rent in Baner",
+      loc: "Location: Baner, Pune",
+      landmark: "Landmark: Near Bitwise",
+      area: "1,250 sq. ft.",
+      rent: "₹88,000",
+      furnish: "Furnished",
+      floor: "",
+      availability: "Ready to move",
+      tag: "Walk-in Ready",
+      workstations: "15 Workstations",
+      cabins: "1 Cabin",
+      parking: "1 Reserved Car Parking",
+      mapQuery: "Near Bitwise, Baner, Pune",
+      highlights: [
+        "1,250 sq. ft. Furnished Office",
+        "15 Workstations",
+        "1 Cabin",
+        "1 Conference Room",
+        "1 Reserved Car Parking",
+        "Monthly Rent: ₹88,000"
+      ],
+      idealFor: "Startups, IT Companies, Agencies, Consultancies and Growing Businesses",
+      cta: "Enquire Now to schedule a site visit.",
+      desc: "Fully Furnished Office Space for Rent in Baner.",
+      images: [
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.32 PM.jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.32 PM (1).jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.32 PM (2).jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM.jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM (1).jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM (2).jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM (3).jpeg",
+        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.34 PM.jpeg"
+      ]
     }
   ];
 
@@ -333,7 +369,11 @@
   var clients = [
     { name: "Bajaj Capital",      img: "img/client_logos/logo-bajaj-capital.png" },
     { name: "RMS Credit Capital", img: "img/client_logos/SHRIRAMFIN.NS_BIG-6cd22189.png" },
-    { name: "Aditya Birla Grasim", img: "img/client_logos/images.jpg.jpeg" }
+    { name: "Aditya Birla Grasim", img: "img/client_logos/images.jpg.jpeg" },
+    { name: "Yakult",             img: "img/client_logos/1280px-Yakult-Logo.svg.png" },
+    { name: "Magic Bus",          img: "img/client_logos/93-933634_the-mentor-monologues-january-magic-bus-logo.png" },
+    { name: "Huhtamaki",          img: "img/client_logos/huhtamaki.png" },
+    { name: "Kruger",             img: "img/client_logos/kruger-logo.png" }
   ];
   var track = document.getElementById("marqueeTrack");
   var loopSet = clients.concat(clients, clients, clients);
