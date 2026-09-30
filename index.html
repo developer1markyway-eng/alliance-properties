@@ -22,15 +22,27 @@
       <div class="brand">
         <img src="img/ap-logo-1.png" alt="Alliance Properties logo">
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
         <a href="#properties">Properties</a>
         <a href="#why">Why Us</a>
         <a href="#clients">Clients</a>
         <a href="#testimonials">Testimonials</a>
+        <a href="#" id="mobileEnquireBtn" class="btn btn-sm mobile-nav-cta">Enquire Now</a>
       </nav>
       <div class="nav-cta">
         <a href="#" id="enquireNowBtn" class="btn btn-sm">Enquire Now</a>
       </div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
     </div>
   </header>
 

@@ -56,6 +56,94 @@
   .nav-phone{ font-size:.86rem; font-weight:600; display:none; color:#1E1E1E; }
   @media(min-width:1020px){ .nav-phone{display:inline;} }
 
+  /* ---------- NAV TOGGLE & MOBILE NAVIGATION ---------- */
+  .nav-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    padding:0;
+    background:transparent;
+    border:1px solid #E4E4E4;
+    border-radius:var(--radius);
+    color:#141414;
+    cursor:pointer;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+    transition:border-color .15s ease, color .15s ease, background-color .15s ease;
+  }
+  .nav-toggle:hover{
+    border-color:var(--red);
+    color:var(--red);
+  }
+  .nav-toggle:focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:2px;
+  }
+  .nav-toggle svg{
+    display:block;
+    width:22px;
+    height:22px;
+    stroke:currentColor;
+    pointer-events:none;
+  }
+  .nav-toggle .icon-close{ display:none; }
+  .nav-toggle[aria-expanded="true"] .icon-menu{ display:none; }
+  .nav-toggle[aria-expanded="true"] .icon-close{ display:block; }
+  .mobile-nav-cta{ display:none !important; }
+
+  @media(max-width:859px){
+    .nav-toggle{ display:inline-flex; }
+    .nav-cta{ display:none !important; }
+    .nav-links{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      width:100%;
+      background:#fff;
+      border-top:1px solid #E4E4E4;
+      border-bottom:2px solid var(--red);
+      box-shadow:0 12px 28px rgba(0,0,0,.12);
+      flex-direction:column;
+      padding:10px 24px 20px;
+      gap:0;
+      box-sizing:border-box;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{
+      padding:13px 0;
+      font-size:.95rem;
+      font-weight:600;
+      color:#1E1E1E;
+      border-bottom:1px solid #F0F0F0;
+      display:flex;
+      align-items:center;
+      transition:color .15s ease, padding-left .15s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:active{
+      color:var(--red);
+      padding-left:4px;
+    }
+    .nav-links .mobile-nav-cta{
+      display:inline-flex !important;
+      margin-top:14px;
+      padding:12px 20px;
+      width:100%;
+      box-sizing:border-box;
+      border-bottom:none;
+      color:#fff !important;
+      font-size:.88rem;
+    }
+    .nav-links .mobile-nav-cta:hover,
+    .nav-links .mobile-nav-cta:active{
+      padding-left:20px;
+    }
+  }
+
   /* ---------- BRAND TEXT HIDDEN (logo only in navbar) ---------- */
   .brand-text { display: none !important; }
 
@@ -76,7 +164,7 @@
   .btn-sm{ padding:9px 16px; font-size:.8rem; }
 
   /* ---------- HERO ---------- */
-  /* Hero uses the ORIGINAL dark overlay — the photograph must remain intact */
+  /* Hero uses fine-tuned overlay (~5% lighter on desktop, slightly lighter again on mobile) */
   .hero {
     position: relative;
     min-height: 700px;
@@ -85,10 +173,10 @@
     background:
       linear-gradient(
         90deg,
-        rgba(15, 15, 15, 0.96) 0%,
-        rgba(15, 15, 15, 0.88) 35%,
-        rgba(15, 15, 15, 0.60) 58%,
-        rgba(15, 15, 15, 0.18) 100%
+        rgba(15, 15, 15, 0.91) 0%,
+        rgba(15, 15, 15, 0.83) 35%,
+        rgba(15, 15, 15, 0.56) 58%,
+        rgba(15, 15, 15, 0.15) 100%
       ),
       url("img/ap-heroimg.png");
 
@@ -134,8 +222,8 @@
       background:
         linear-gradient(
           180deg,
-          rgba(15, 15, 15, 0.88) 0%,
-          rgba(15, 15, 15, 0.96) 100%
+          rgba(15, 15, 15, 0.78) 0%,
+          rgba(15, 15, 15, 0.84) 100%
         ),
         url("img/ap-heroimg.png");
       background-size: cover;

@@ -567,13 +567,74 @@
 
   resetAuto();
 
-  /* ---- Enquire Now button ---- */
-  var enquireBtn = document.getElementById("enquireNowBtn");
-  if(enquireBtn){
-    var enquireText = "Hi, I'd like to enquire about a commercial property in Baner.";
-    enquireBtn.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(enquireText);
-    enquireBtn.target = "_blank";
-    enquireBtn.rel = "noopener";
+  /* ---- Enquire Now buttons ---- */
+  var enquireButtons = [
+    document.getElementById("enquireNowBtn"),
+    document.getElementById("mobileEnquireBtn")
+  ];
+  var enquireText = "Hi, I'd like to enquire about a commercial property in Baner.";
+  enquireButtons.forEach(function(btn){
+    if(btn){
+      btn.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(enquireText);
+      btn.target = "_blank";
+      btn.rel = "noopener";
+    }
+  });
+
+  /* ---- Mobile Navigation Toggle ---- */
+  var navToggle = document.getElementById("navToggle");
+  var navLinks = document.getElementById("navLinks");
+
+  if(navToggle && navLinks){
+    function closeNav(){
+      navToggle.setAttribute("aria-expanded", "false");
+      navLinks.classList.remove("open");
+    }
+
+    function openNav(){
+      navToggle.setAttribute("aria-expanded", "true");
+      navLinks.classList.add("open");
+    }
+
+    navToggle.addEventListener("click", function(e){
+      e.stopPropagation();
+      var isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+      if(isExpanded){
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    // Close when a navigation item is selected
+    var navItems = navLinks.querySelectorAll("a");
+    Array.prototype.forEach.call(navItems, function(item){
+      item.addEventListener("click", function(){
+        closeNav();
+      });
+    });
+
+    // Close on outside click/tap
+    document.addEventListener("click", function(e){
+      if(!navLinks.contains(e.target) && !navToggle.contains(e.target)){
+        closeNav();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && navLinks.classList.contains("open")){
+        closeNav();
+        navToggle.focus();
+      }
+    });
+
+    // Close on resize to desktop
+    window.addEventListener("resize", function(){
+      if(window.innerWidth >= 860 && navLinks.classList.contains("open")){
+        closeNav();
+      }
+    });
   }
 
 })();
