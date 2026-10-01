@@ -230,7 +230,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    .hero-inner { min-height: 650px; padding: 48px 0 40px; }
+    .hero-inner { min-height: 650px; padding: 48px 20px 40px; }
     .hero-copy { max-width: 100%; }
     .hero-stats { gap: 24px; }
   }
