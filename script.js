@@ -34,11 +34,14 @@
       cta: "Enquire Now to schedule a site visit.",
       desc: "Fully Furnished Office Space for Rent in Baner.",
       images: [
-        "img/properties/propset5/1.jpeg",
-        "img/properties/propset5/2.jpeg",
-        "img/properties/propset5/4.jpeg",
-        "img/properties/propset5/3.jpeg",
-        "img/properties/propset5/07Aug20232129550.jpg.jpeg"
+        "img/properties/propset1/Cover Image .jpeg",
+        "img/properties/propset1/2.jpeg",
+        "img/properties/propset1/3.jpeg",
+        "img/properties/propset1/4.jpeg",
+        "img/properties/propset1/5.jpeg",
+        "img/properties/propset1/6.jpeg",
+        "img/properties/propset1/7.jpeg",
+        "img/properties/propset1/8.jpeg"
       ]
     },
     {
@@ -54,7 +57,8 @@
       workstations: "10 Workstations",
       cabins: "1 Private Cabin",
       parking: "1 Reserved Car Parking",
-      mapQuery: "Gai Chowk, Balewadi, Pune",
+      mapQuery: "https://maps.app.goo.gl/mKSYHNET7bttqCj27?g_st=ac",
+      mapLink: "https://maps.app.goo.gl/mKSYHNET7bttqCj27?g_st=ac",
       highlights: [
         "1,250 sq. ft. Fully Furnished Office",
         "10 Workstations",
@@ -69,11 +73,12 @@
       cta: "Enquire Now to schedule a site visit.",
       desc: "Fully Furnished Office Space for Rent in Balewadi.",
       images: [
-        "img/properties/propset2/09Jun20261810170.png",
-        "img/properties/propset2/09Jun20261810380.png",
-        "img/properties/propset2/09Jun20261810580.png",
-        "img/properties/propset2/09Jun20261811150.png",
-        "img/properties/propset2/09Jun20261811330.png"
+        "img/properties/propset2/Cover Image .png",
+        "img/properties/propset2/2.png",
+        "img/properties/propset2/3.png",
+        "img/properties/propset2/4.png",
+        "img/properties/propset2/5.png",
+        "img/properties/propset2/6.png"
       ]
     },
     {
@@ -103,10 +108,14 @@
       cta: "Enquire Now to schedule a site visit.",
       desc: "Fully Furnished Office Space for Rent in Baner.",
       images: [
-        "img/properties/propset1/1.jpeg",
-        "img/properties/propset1/2.jpeg",
-        "img/properties/propset1/3.jpeg",
-        "img/properties/propset1/5.jpeg"
+        "img/properties/propset3/Cover Image .jpeg",
+        "img/properties/propset3/2.jpeg",
+        "img/properties/propset3/3.jpeg",
+        "img/properties/propset3/4.jpeg",
+        "img/properties/propset3/5.jpeg",
+        "img/properties/propset3/6.jpeg",
+        "img/properties/propset3/7.jpeg",
+        "img/properties/propset3/8.jpeg"
       ]
     },
     {
@@ -137,9 +146,14 @@
       cta: "Enquire Now to schedule a site visit.",
       desc: "Fully Furnished Office Space for Rent in Baner.",
       images: [
-        "img/properties/propset3/WhatsApp Image 2026-09-17 at 3.54.02 PM.jpeg",
-        "img/properties/propset3/WhatsApp Image 2026-09-17 at 3.54.03 PM.jpeg",
-        "img/properties/propset3/WhatsApp Image 2026-09-17 at 3.54.04 PM.jpeg"
+        "img/properties/propset4/Cover Image .jpeg",
+        "img/properties/propset4/2.jpeg",
+        "img/properties/propset4/3.jpeg",
+        "img/properties/propset4/4.jpeg",
+        "img/properties/propset4/5.jpeg",
+        "img/properties/propset4/6.jpeg",
+        "img/properties/propset4/7.jpeg",
+        "img/properties/propset4/8.jpeg"
       ]
     },
     {
@@ -155,7 +169,8 @@
       workstations: "25 Workstations",
       cabins: "2 Private Cabins",
       parking: "1 Reserved Car Parking",
-      mapQuery: "Balewadi, Pune",
+      mapQuery: "https://maps.app.goo.gl/mKSYHNET7bttqCj27?g_st=ac",
+      mapLink: "https://maps.app.goo.gl/mKSYHNET7bttqCj27?g_st=ac",
       highlights: [
         "1,600 sq. ft. Furnished Office",
         "25 Workstations",
@@ -172,10 +187,14 @@
       cta: "Enquire Now to schedule a site visit.",
       desc: "Furnished Office Space for Rent in Balewadi.",
       images: [
-        "img/properties/propset4/08Nov20250942170.jpeg",
-        "img/properties/propset4/08Nov20250942181.jpeg",
-        "img/properties/propset4/08Nov20250942182.jpeg",
-        "img/properties/propset4/08Nov20250942183.jpeg"
+        "img/properties/propset5/Cover Image .jpeg",
+        "img/properties/propset5/2.jpeg",
+        "img/properties/propset5/3.jpeg",
+        "img/properties/propset5/4.jpeg",
+        "img/properties/propset5/5.jpeg",
+        "img/properties/propset5/6.jpeg",
+        "img/properties/propset5/7.jpeg",
+        "img/properties/propset5/8.jpeg"
       ]
     },
     {
@@ -191,7 +210,8 @@
       workstations: "15 Workstations",
       cabins: "1 Cabin",
       parking: "1 Reserved Car Parking",
-      mapQuery: "Near Bitwise, Baner, Pune",
+      mapQuery: "https://maps.app.goo.gl/VWUbsXMNY3E1x7vC9?g_st=ac",
+      mapLink: "https://maps.app.goo.gl/VWUbsXMNY3E1x7vC9?g_st=ac",
       highlights: [
         "1,250 sq. ft. Furnished Office",
         "15 Workstations",
@@ -204,14 +224,14 @@
       cta: "Enquire Now to schedule a site visit.",
       desc: "Fully Furnished Office Space for Rent in Baner.",
       images: [
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.32 PM.jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.32 PM (1).jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.32 PM (2).jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM.jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM (1).jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM (2).jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.33 PM (3).jpeg",
-        "img/properties/propset6/WhatsApp Image 2026-09-30 at 6.52.34 PM.jpeg"
+        "img/properties/propset6/Cover Image .jpeg",
+        "img/properties/propset6/2.jpeg",
+        "img/properties/propset6/3.jpeg",
+        "img/properties/propset6/4.jpeg",
+        "img/properties/propset6/5.jpeg",
+        "img/properties/propset6/6.jpeg",
+        "img/properties/propset6/7.jpeg",
+        "img/properties/propset6/8.jpeg"
       ]
     }
   ];
@@ -225,11 +245,12 @@
   function isLetterboxed(src){
     if(!src) return false;
     return src.indexOf("propset2") !== -1 ||
-           src.indexOf("propset1/2.jpeg") !== -1 ||
-           src.indexOf("08Nov20250942185.jpeg") !== -1 ||
-           src.indexOf("08Nov20250942561.jpeg") !== -1 ||
-           src.indexOf("07Aug20232129550") !== -1 ||
-           src.indexOf("05Aug20251642162") !== -1;
+           src.indexOf("propset1/4.jpeg") !== -1 ||
+           src.indexOf("propset3/4.jpeg") !== -1 ||
+           src.indexOf("propset5/4.jpeg") !== -1 ||
+           src.indexOf("propset5/6.jpeg") !== -1 ||
+           src.indexOf("propset6/Cover Image .jpeg") !== -1 ||
+           src.indexOf("propset6/5.jpeg") !== -1;
   }
 
   /* ---- render the 5 cards ---- */
@@ -328,9 +349,15 @@
     renderImage();
 
     /* Update map iframe */
-    if(mapIframe && p.mapQuery){
-      var q = encodeURIComponent(p.mapQuery);
-      mapIframe.src = "https://www.google.com/maps?q=" + q + "&output=embed";
+    if(mapIframe && (p.mapQuery || p.mapLink)){
+      var raw = p.mapLink || p.mapQuery;
+      var q = raw;
+      if(raw.indexOf("mKSYHNET7bttqCj27") !== -1){
+        q = "Sai Chowk, Balewadi, Pune";
+      } else if(raw.indexOf("VWUbsXMNY3E1x7vC9") !== -1){
+        q = "Near Bitwise, Baner, Pune";
+      }
+      mapIframe.src = "https://www.google.com/maps?q=" + encodeURIComponent(q) + "&output=embed";
     }
 
     var waText = "Hi, I am interested in " + p.name + " (" + (p.landmark ? p.loc + ", " + p.landmark : p.loc) + ", " + p.area + ", " + p.rent + "/month). " + p.cta;
@@ -399,20 +426,6 @@
       text: "My feedback for alliance in less words will be: Nice and Co operative, team whose contacts are Good. They are not money oriented people, they want to maintain relationships with tenants as well as owners. Amolji helped me at every point and he made sure that every commitment given by owner get fulfilled. I will definitely recommend such person for my other friends and family members."
     },
     {
-      name: "Sunil Patil",
-      role: "Patil",
-      rating: 5,
-      photo: "img/client/18Sep2025170536.jpeg",
-      text: "Good Coordination, good experience."
-    },
-    {
-      name: "Vivek Jadhav",
-      role: "Bajaj Capital Insurance Booking Ltd",
-      rating: 5,
-      photo: "img/client/12Sep2025164021.jpg",
-      text: "Good Service"
-    },
-    {
       name: "Dr. Ram Patil",
       role: "Care Cube Cancer Centre",
       rating: 5,
@@ -427,13 +440,6 @@
       text: "Good service. Accommodative for both the parties. Genuinely worked hard in my case to pursue me and the client to secure the deal. Never took sides and behaved logically as per market standard. Had lot of patience."
     },
     {
-      name: "Kamlesh Pathak",
-      role: "Fortessa Pharma Private Limited",
-      rating: 5,
-      photo: "img/client/23Sep2025114637.jpg",
-      text: "Having a good number of properties as per the client requirement. Good, reliable and prompt services."
-    },
-    {
       name: "Hemant Toraskar",
       role: "Speedjet Aviation Pune",
       rating: 4,
@@ -446,13 +452,6 @@
       rating: 5,
       photo: "img/client/28Aug2023195454.jpeg",
       text: "Good service. Accommodative for both the parties. Genuinely worked hard in my case to pursue me and the client to secure the deal. Never took sides and behaved logically as per market standard. Had lot of patience."
-    },
-    {
-      name: "Rushikesh Jagtap",
-      role: "Magic Bus India Foundation",
-      rating: 5,
-      photo: "img/client/09Mar2023151836.jpg",
-      text: "Nice Property options, Good Co ordination also helping for negotiation."
     },
     {
       name: "Mustafa Shipchandler",
@@ -476,39 +475,11 @@
       text: "They have multiple options available as per requirement. Showed me lots of properties, and their team is always there to help you in every possible way. From property visit till document is executed they were helpful."
     },
     {
-      name: "Amol Badke",
-      role: "Alliance Properties",
-      rating: 5,
-      photo: "img/client/27Feb2023132040.jpg",
-      text: "Alliance Properties is trying to provide values for clients. Also we will keep trying to make us more better by doing ethical practice always."
-    },
-    {
       name: "Nilesh Ranaware",
       role: "360Customizer",
       rating: 5,
       photo: "img/client/06Mar2023094808.jpg",
       text: "The entire process of showing offices to getting the agreement done was smooth and flawless. Team Alliance properties understand customers pain points and have found lucrative solutions for all the involved parties in a deal. It is a win-win situation for everyone. Will definitely recommend their service to other businesses. Keep up the good work."
-    },
-    {
-      name: "Pranay",
-      role: "Bright Route Consulting",
-      rating: 5,
-      photo: "img/client/08Apr2023125455.jpg",
-      text: "Very nice and cooperative firm for property search"
-    },
-    {
-      name: "Girish Badkas",
-      role: "RMS Credit Service",
-      rating: 5,
-      photo: "img/client/27May2025113449.jpeg",
-      text: "As we have taken the office they are very helpful and supportive they have best service"
-    },
-    {
-      name: "Anand",
-      role: "Canrich",
-      rating: 5,
-      photo: "img/client/18Apr2025160614.jpg",
-      text: "End to end service, very professional and comprehensive"
     }
   ];
 
