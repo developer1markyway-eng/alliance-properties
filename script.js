@@ -47,7 +47,7 @@
     {
       name: "Fully Furnished Office Space for Rent in Balewadi",
       loc: "Location: Balewadi, Pune",
-      landmark: "Landmark: Gai Chowk",
+      landmark: "Landmark: Sai Chowk",
       area: "1,250 sq. ft.",
       rent: "Rs.80,000",
       furnish: "Fully Furnished",
@@ -77,8 +77,7 @@
         "img/properties/propset2/2.png",
         "img/properties/propset2/3.png",
         "img/properties/propset2/4.png",
-        "img/properties/propset2/5.png",
-        "img/properties/propset2/6.png"
+        "img/properties/propset2/5.png"
       ]
     },
     {
@@ -246,9 +245,9 @@
     if(!src) return false;
     return src.indexOf("propset2") !== -1 ||
            src.indexOf("propset1/4.jpeg") !== -1 ||
-           src.indexOf("propset3/4.jpeg") !== -1 ||
+           src.indexOf("propset4/4.jpeg") !== -1 ||
+           src.indexOf("propset4/6.jpeg") !== -1 ||
            src.indexOf("propset5/4.jpeg") !== -1 ||
-           src.indexOf("propset5/6.jpeg") !== -1 ||
            src.indexOf("propset6/Cover Image .jpeg") !== -1 ||
            src.indexOf("propset6/5.jpeg") !== -1;
   }
