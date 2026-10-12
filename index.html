@@ -291,6 +291,87 @@
     </div>
   </div>
 
+  <!-- Visitor Contact Form Modal Popup -->
+  <div class="vcf-overlay" id="vcfOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vcfTitle">
+    <div class="vcf-modal">
+      <button type="button" class="vcf-close" id="vcfClose" aria-label="Close dialog">&times;</button>
+      
+      <!-- Form Container -->
+      <div class="vcf-form-wrap" id="vcfFormWrap">
+        <div class="vcf-header">
+          <div class="vcf-badge">Alliance Properties</div>
+          <h2 class="vcf-title" id="vcfTitle">Let's Connect</h2>
+          <p class="vcf-subtitle">Looking for the right commercial office space? Share your details and our team will get in touch with you.</p>
+        </div>
+
+        <form class="vcf-form" id="vcfForm" novalidate>
+          <!-- Hidden spam trap: real visitors never fill this -->
+          <input type="text" name="website" id="vcfWebsite" class="vcf-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="vcf-field">
+            <label for="vcfName" class="vcf-label">Full Name <span class="vcf-req">*</span></label>
+            <input type="text" id="vcfName" name="fullName" class="vcf-input" placeholder="e.g. Rajesh Sharma" autocomplete="name" maxlength="100" required>
+            <span class="vcf-field-error" id="vcfNameError" aria-live="polite"></span>
+          </div>
+
+          <div class="vcf-row">
+            <div class="vcf-field">
+              <label for="vcfEmail" class="vcf-label">Email Address <span class="vcf-req">*</span></label>
+              <input type="email" id="vcfEmail" name="email" class="vcf-input" placeholder="e.g. rajesh@company.com" autocomplete="email" maxlength="150" required>
+              <span class="vcf-field-error" id="vcfEmailError" aria-live="polite"></span>
+            </div>
+            <div class="vcf-field">
+              <label for="vcfPhone" class="vcf-label">Phone Number <span class="vcf-req">*</span></label>
+              <input type="tel" id="vcfPhone" name="phone" class="vcf-input" placeholder="e.g. 98765 43210" autocomplete="tel" maxlength="20" required>
+              <span class="vcf-field-error" id="vcfPhoneError" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="vcf-field">
+            <label for="vcfCompany" class="vcf-label">Company Name <span class="vcf-opt">(Optional)</span></label>
+            <input type="text" id="vcfCompany" name="company" class="vcf-input" placeholder="e.g. Nexa Infotech Pvt Ltd" autocomplete="organization" maxlength="150">
+          </div>
+
+          <div class="vcf-field">
+            <label for="vcfMessage" class="vcf-label">Requirement / Message <span class="vcf-opt">(Optional)</span></label>
+            <textarea id="vcfMessage" name="message" class="vcf-textarea" rows="3" placeholder="Tell us about your team size, area required (e.g. 1500 sq.ft.), budget, or move-in timeline..." maxlength="2000"></textarea>
+          </div>
+
+          <!-- Alert / Error message container -->
+          <div class="vcf-alert vcf-alert-error" id="vcfAlertError" style="display:none;" role="alert">
+            <span class="vcf-alert-icon">⚠️</span>
+            <span class="vcf-alert-text" id="vcfAlertErrorText">Something went wrong. Please check your details and try again.</span>
+          </div>
+
+          <button type="submit" class="vcf-submit-btn" id="vcfSubmit">
+            <span class="vcf-submit-text">Submit Details</span>
+            <span class="vcf-spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="vcf-privacy">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Your information is kept strictly confidential and used only for your inquiry.</span>
+          </p>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div class="vcf-success-wrap" id="vcfSuccessWrap" style="display:none;" aria-live="polite">
+        <div class="vcf-success-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" stroke="#1D8A4A" stroke-width="2"></circle>
+            <path d="M8 12.5l2.5 2.5 5.5-5.5" stroke="#1D8A4A" stroke-width="2.5"></path>
+          </svg>
+        </div>
+        <h3 class="vcf-success-title">Thank You!</h3>
+        <p class="vcf-success-text">We have received your enquiry. Our commercial property leasing team in Baner will connect with you shortly with suitable options.</p>
+        <div class="vcf-success-actions">
+          <button type="button" class="btn btn-outline" id="vcfSuccessClose">Continue Browsing</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 

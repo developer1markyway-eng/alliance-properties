@@ -647,4 +647,292 @@
     });
   }
 
+  /* =========================================================
+     VISITOR CONTACT FORM POPUP & GOOGLE SHEETS INTEGRATION
+     ========================================================= */
+
+  // Deployed Google Apps Script Web App URL and Security Token
+  var GOOGLE_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbymzAQUSIfB0Tm170o0hiDtHWdRSakhKa1P9NOjOtgMoH-uJWA6S9f0H6MsaxyuwSaj/exec";
+  var FORM_TOKEN = "AP-7f3k9Q2xLm48";
+
+  var vcfOverlay       = document.getElementById("vcfOverlay");
+  var vcfCloseBtn      = document.getElementById("vcfClose");
+  var vcfFormWrap      = document.getElementById("vcfFormWrap");
+  var vcfSuccessWrap   = document.getElementById("vcfSuccessWrap");
+  var vcfForm          = document.getElementById("vcfForm");
+  var vcfSubmitBtn     = document.getElementById("vcfSubmit");
+  var vcfSubmitText    = vcfSubmitBtn ? vcfSubmitBtn.querySelector(".vcf-submit-text") : null;
+  var vcfSuccessClose  = document.getElementById("vcfSuccessClose");
+  var vcfAlertError    = document.getElementById("vcfAlertError");
+  var vcfAlertErrorTxt = document.getElementById("vcfAlertErrorText");
+
+  var vcfWebsiteInput  = document.getElementById("vcfWebsite"); // anti-spam honeypot
+  var vcfNameInput     = document.getElementById("vcfName");
+  var vcfEmailInput    = document.getElementById("vcfEmail");
+  var vcfPhoneInput    = document.getElementById("vcfPhone");
+  var vcfCompanyInput  = document.getElementById("vcfCompany");
+  var vcfMessageInput  = document.getElementById("vcfMessage");
+
+  var vcfNameError     = document.getElementById("vcfNameError");
+  var vcfEmailError    = document.getElementById("vcfEmailError");
+  var vcfPhoneError    = document.getElementById("vcfPhoneError");
+
+  var VCF_SESSION_KEY  = "alliance_visitor_form_dismissed";
+
+  function openVcfModal(){
+    if(!vcfOverlay) return;
+    vcfOverlay.classList.add("open");
+    vcfOverlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if(vcfNameInput) {
+      setTimeout(function(){
+        try { vcfNameInput.focus(); } catch(e){}
+      }, 300);
+    }
+  }
+
+  function closeVcfModal(){
+    if(!vcfOverlay) return;
+    vcfOverlay.classList.remove("open");
+    vcfOverlay.setAttribute("aria-hidden", "true");
+    // Only restore body overflow if property modal is not open
+    if(!overlay || !overlay.classList.contains("open")){
+      document.body.style.overflow = "";
+    }
+    // Record in sessionStorage so it doesn't pop up again this browsing session
+    try {
+      sessionStorage.setItem(VCF_SESSION_KEY, "true");
+    } catch(e){}
+  }
+
+  // Clear errors as visitor types
+  function bindInputErrorClearing(inputEl, errorEl){
+    if(!inputEl) return;
+    inputEl.addEventListener("input", function(){
+      inputEl.classList.remove("is-invalid");
+      if(errorEl) errorEl.textContent = "";
+      if(vcfAlertError) vcfAlertError.style.display = "none";
+    });
+  }
+
+  bindInputErrorClearing(vcfNameInput, vcfNameError);
+  bindInputErrorClearing(vcfEmailInput, vcfEmailError);
+  bindInputErrorClearing(vcfPhoneInput, vcfPhoneError);
+
+  // Form validation helper matching Code.gs criteria
+  function validateVcfForm(){
+    var isValid = true;
+    var firstInvalidField = null;
+
+    // Reset error states
+    [vcfNameInput, vcfEmailInput, vcfPhoneInput].forEach(function(el){
+      if(el) el.classList.remove("is-invalid");
+    });
+    if(vcfNameError) vcfNameError.textContent = "";
+    if(vcfEmailError) vcfEmailError.textContent = "";
+    if(vcfPhoneError) vcfPhoneError.textContent = "";
+    if(vcfAlertError) vcfAlertError.style.display = "none";
+
+    // 1. Name validation (2 to 100 characters)
+    var nameVal = (vcfNameInput ? vcfNameInput.value : "").trim();
+    if(!nameVal){
+      isValid = false;
+      if(vcfNameInput) vcfNameInput.classList.add("is-invalid");
+      if(vcfNameError) vcfNameError.textContent = "Please enter your full name.";
+      firstInvalidField = firstInvalidField || vcfNameInput;
+    } else if(nameVal.length < 2){
+      isValid = false;
+      if(vcfNameInput) vcfNameInput.classList.add("is-invalid");
+      if(vcfNameError) vcfNameError.textContent = "Name must be at least 2 characters.";
+      firstInvalidField = firstInvalidField || vcfNameInput;
+    } else if(nameVal.length > 100){
+      isValid = false;
+      if(vcfNameInput) vcfNameInput.classList.add("is-invalid");
+      if(vcfNameError) vcfNameError.textContent = "Name cannot exceed 100 characters.";
+      firstInvalidField = firstInvalidField || vcfNameInput;
+    }
+
+    // 2. Email validation (Code.gs: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, max 150 chars)
+    var emailVal = (vcfEmailInput ? vcfEmailInput.value : "").trim();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailVal){
+      isValid = false;
+      if(vcfEmailInput) vcfEmailInput.classList.add("is-invalid");
+      if(vcfEmailError) vcfEmailError.textContent = "Please enter your email address.";
+      firstInvalidField = firstInvalidField || vcfEmailInput;
+    } else if(!emailRegex.test(emailVal) || emailVal.length > 150){
+      isValid = false;
+      if(vcfEmailInput) vcfEmailInput.classList.add("is-invalid");
+      if(vcfEmailError) vcfEmailError.textContent = "Please enter a valid email address.";
+      firstInvalidField = firstInvalidField || vcfEmailInput;
+    }
+
+    // 3. Phone validation (Code.gs: 7-15 digits, allowed chars: 0-9+()-\s., max 20 chars)
+    var phoneVal = (vcfPhoneInput ? vcfPhoneInput.value : "").trim();
+    var phoneDigits = phoneVal.replace(/\D/g, "");
+    var phonePattern = /^[0-9+()\-\s.]+$/;
+    if(!phoneVal){
+      isValid = false;
+      if(vcfPhoneInput) vcfPhoneInput.classList.add("is-invalid");
+      if(vcfPhoneError) vcfPhoneError.textContent = "Please enter your phone number.";
+      firstInvalidField = firstInvalidField || vcfPhoneInput;
+    } else if(phoneDigits.length < 7 || phoneDigits.length > 15 || !phonePattern.test(phoneVal) || phoneVal.length > 20){
+      isValid = false;
+      if(vcfPhoneInput) vcfPhoneInput.classList.add("is-invalid");
+      if(vcfPhoneError) vcfPhoneError.textContent = "Please enter a valid phone number (7 to 15 digits).";
+      firstInvalidField = firstInvalidField || vcfPhoneInput;
+    }
+
+    // 4. Company length limit (150 chars)
+    var companyVal = (vcfCompanyInput ? vcfCompanyInput.value : "").trim();
+    if(companyVal.length > 150){
+      isValid = false;
+      if(vcfAlertError && vcfAlertErrorTxt){
+        vcfAlertErrorTxt.textContent = "Company name cannot exceed 150 characters.";
+        vcfAlertError.style.display = "flex";
+      }
+    }
+
+    // 5. Message length limit (2000 chars)
+    var messageVal = (vcfMessageInput ? vcfMessageInput.value : "").trim();
+    if(messageVal.length > 2000){
+      isValid = false;
+      if(vcfAlertError && vcfAlertErrorTxt){
+        vcfAlertErrorTxt.textContent = "Message cannot exceed 2000 characters.";
+        vcfAlertError.style.display = "flex";
+      }
+    }
+
+    if(!isValid && firstInvalidField){
+      try { firstInvalidField.focus(); } catch(e){}
+    }
+
+    return isValid;
+  }
+
+  // Handle Submission
+  function handleVcfSubmit(e){
+    e.preventDefault();
+
+    if(!validateVcfForm()) return;
+
+    var fullName = vcfNameInput.value.trim();
+    var email = vcfEmailInput.value.trim();
+    var phone = vcfPhoneInput.value.trim();
+    var company = (vcfCompanyInput ? vcfCompanyInput.value : "").trim();
+    var message = (vcfMessageInput ? vcfMessageInput.value : "").trim();
+    var websiteHoneypot = (vcfWebsiteInput ? vcfWebsiteInput.value : "").trim();
+
+    // Payload mapped precisely to Code.gs requirements
+    var payload = {
+      token: FORM_TOKEN,
+      website: websiteHoneypot,
+      fullName: fullName,
+      email: email,
+      phone: phone,
+      company: company,
+      message: message
+    };
+
+    // Loading UI state
+    if(vcfSubmitBtn){
+      vcfSubmitBtn.disabled = true;
+      vcfSubmitBtn.classList.add("is-loading");
+    }
+    if(vcfSubmitText){
+      vcfSubmitText.textContent = "Submitting...";
+    }
+    if(vcfAlertError){
+      vcfAlertError.style.display = "none";
+    }
+
+    // Submit via fetch using text/plain to avoid CORS preflight rejection by Google Apps Script
+    fetch(GOOGLE_SCRIPT_WEBAPP_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){
+      return res.text().then(function(text){
+        try {
+          return JSON.parse(text);
+        } catch(err){
+          return { status: res.ok ? "success" : "error", message: text };
+        }
+      });
+    })
+    .then(function(data){
+      if(data && data.status === "success"){
+        // Transition to success screen
+        if(vcfFormWrap) vcfFormWrap.style.display = "none";
+        if(vcfSuccessWrap) vcfSuccessWrap.style.display = "flex";
+        try {
+          sessionStorage.setItem(VCF_SESSION_KEY, "true");
+        } catch(e){}
+      } else {
+        throw new Error(data && data.message ? data.message : "Submission failed.");
+      }
+    })
+    .catch(function(err){
+      console.error("Alliance Properties Contact Form error:", err);
+      if(vcfSubmitBtn){
+        vcfSubmitBtn.disabled = false;
+        vcfSubmitBtn.classList.remove("is-loading");
+      }
+      if(vcfSubmitText){
+        vcfSubmitText.textContent = "Submit Details";
+      }
+      if(vcfAlertError && vcfAlertErrorTxt){
+        var errorMsg = (err && err.message) ? err.message : "Unable to submit your details right now. Please check your connection or contact us directly on WhatsApp.";
+        vcfAlertErrorTxt.textContent = errorMsg;
+        vcfAlertError.style.display = "flex";
+      }
+    });
+  }
+
+  // Event Listeners for visitor modal
+  if(vcfForm){
+    vcfForm.addEventListener("submit", handleVcfSubmit);
+  }
+  if(vcfCloseBtn){
+    vcfCloseBtn.addEventListener("click", closeVcfModal);
+  }
+  if(vcfSuccessClose){
+    vcfSuccessClose.addEventListener("click", closeVcfModal);
+  }
+  if(vcfOverlay){
+    vcfOverlay.addEventListener("click", function(e){
+      if(e.target === vcfOverlay){
+        closeVcfModal();
+      }
+    });
+  }
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && vcfOverlay && vcfOverlay.classList.contains("open")){
+      closeVcfModal();
+    }
+  });
+
+  // Check session storage and display popup once per browsing session
+  var isDismissed = false;
+  try {
+    isDismissed = sessionStorage.getItem(VCF_SESSION_KEY) === "true";
+  } catch(e){}
+
+  if(!isDismissed){
+    // Small delay (900ms) after page load for smooth entry
+    setTimeout(function(){
+      // Ensure property modal isn't already open
+      if(!overlay || !overlay.classList.contains("open")){
+        openVcfModal();
+      }
+    }, 900);
+  }
+
+  // Expose global trigger for manual opening if needed
+  window.openVisitorContactModal = openVcfModal;
+
 })();
+
